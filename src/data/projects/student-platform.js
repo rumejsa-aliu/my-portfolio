@@ -14,7 +14,7 @@ const portfolio = {
   ],
   links: {
     live: 'rumejsa-aliu.vercel.app',
-    github: '',
+    github: null,
   },
 }
 

@@ -2,7 +2,7 @@ const mihralb = {
   id: 'mihralb',
   name: 'Mihralb',
   tagline: 'Production journalism platform for a real client',
-  year: '2025',
+  year: '2026',
   status: 'in-progress',
   stack: ['Next.js', 'React', 'Tailwind CSS', 'Strapi CMS', 'REST API'],
   description: `Full-Stack Journalism Portal`,
