@@ -2,7 +2,7 @@ const portfolio = {
   id: 'portfolio',
   name: 'Personal Portfolio',
   tagline: 'Interactive desktop-inspired portfolio experience',
-  year: '2025',
+  year: '2026',
   status: 'live',
   stack: ['React', 'Vite', 'CSS Modules', 'SVG'],
   description: 'Desktop-Inspired Portfolio Website',
