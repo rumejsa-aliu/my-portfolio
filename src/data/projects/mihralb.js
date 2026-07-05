@@ -3,7 +3,7 @@ const mihralb = {
   name: 'Mihralb',
   tagline: 'Production journalism platform for a real client',
   year: '2025',
-  status: 'live',
+  status: 'in-progress',
   stack: ['Next.js', 'React', 'Tailwind CSS', 'Strapi CMS', 'REST API'],
   description: `Full-Stack Journalism Portal`,
   highlights: [
@@ -14,7 +14,7 @@ const mihralb = {
     
   ],
   links: {
-    live: 'https://mihralb.com',
+    live: '',
     github: null,
   },
 }

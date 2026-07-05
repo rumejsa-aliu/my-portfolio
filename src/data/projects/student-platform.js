@@ -3,7 +3,7 @@ const portfolio = {
   name: 'Personal Portfolio',
   tagline: 'Interactive desktop-inspired portfolio experience',
   year: '2025',
-  status: 'in-progress',
+  status: 'live',
   stack: ['React', 'Vite', 'CSS Modules', 'SVG'],
   description: 'Desktop-Inspired Portfolio Website',
   highlights: [
@@ -13,7 +13,7 @@ const portfolio = {
     'Added interactive touches to make the experience memorable, including a constellation-based skills page, a messaging-style contact app, and a boot screen where users power on an illustrated computer before entering the site.',
   ],
   links: {
-    live: null,
+    live: 'rumejsa-aliu.vercel.app',
     github: '',
   },
 }
