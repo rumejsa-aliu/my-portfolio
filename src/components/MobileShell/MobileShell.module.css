@@ -1,0 +1,326 @@
+.shell {
+  position: fixed;
+  inset: 0;
+  background: #060608;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  animation: shellIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes shellIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.wallpaper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ── Status bar ── */
+.statusBar {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+.statusTime {
+  font-size: 14px;
+  font-weight: 600;
+  color: #E8E8EC;
+  letter-spacing: 0.02em;
+}
+
+.statusRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.shutdownBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #3A3A42;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: color 0.15s ease;
+}
+
+.shutdownBtn:active {
+  color: #4A7AB5;
+}
+
+.shutdownBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Home ── */
+.home {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.homeHeader {
+  padding: 20px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.homeName {
+  font-size: 28px;
+  font-weight: 700;
+  color: #E8E8EC;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+}
+
+.homeRole {
+  font-size: 12px;
+  color: #4A7AB5;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+}
+
+.appList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.appList::-webkit-scrollbar { display: none; }
+
+.appItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(14, 14, 20, 0.75);
+  border: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  transition: background 0.12s ease, transform 0.1s ease;
+}
+
+.appItem:active {
+  background: rgba(30, 58, 95, 0.2);
+  border-color: rgba(30, 58, 95, 0.3);
+  transform: scale(0.98);
+}
+
+.appItemIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #1C1C21;
+  border: 1px solid #2A2A30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.appItemIcon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.appItemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.appItemName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #E8E8EC;
+}
+
+.appItemDesc {
+  font-size: 12px;
+  color: #6B6B78;
+}
+
+.appItemArrow {
+  color: #2A2A30;
+  flex-shrink: 0;
+}
+
+.appItemArrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ── App screen ── */
+.appScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: #141417;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0);    }
+}
+
+.appBar {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  background: #1C1C21;
+  border-bottom: 1px solid #1F1F24;
+  flex-shrink: 0;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: #4A7AB5;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.backBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.appBarTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #E8E8EC;
+  flex: 1;
+}
+
+.appBarIcon {
+  display: flex;
+  align-items: center;
+  opacity: 0.4;
+}
+
+.appBarIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.appContent {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Shutdown overlay ── */
+.shutdownOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.shutdownCard {
+  background: #1C1C21;
+  border: 1px solid #2A2A30;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 260px;
+}
+
+.shutdownCardTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #E8E8EC;
+}
+
+.shutdownCardSub {
+  font-size: 12px;
+  color: #6B6B78;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.shutdownCardBtns {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.cancelBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  background: #242429;
+  border: 1px solid #2A2A30;
+  color: #A0A0AC;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.confirmBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(30, 58, 95, 0.2);
+  border: 1px solid rgba(30, 58, 95, 0.3);
+  color: #4A7AB5;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}

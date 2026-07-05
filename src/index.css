@@ -1,0 +1,123 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --color-base:        #0C0C0E;
+  --color-surface-1:   #141417;
+  --color-surface-2:   #1C1C21;
+  --color-surface-3:   #242429;
+  --color-border:      #2A2A30;
+  --color-border-soft: #1F1F24;
+  --color-accent:      #1E3A5F;
+  --color-accent-dim:  rgba(30, 58, 95, 0.15);
+  --color-accent-glow: rgba(30, 58, 95, 0.25);
+  --color-text-1:      #E8E8EC;
+  --color-text-2:      #A0A0AC;
+  --color-text-3:      #6B6B78;
+  --color-glass-bg:    rgba(20, 20, 23, 0.82);
+  --color-glass-border:rgba(255, 255, 255, 0.06);
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --shadow-window:
+    0 2px 4px rgba(0,0,0,0.4),
+    0 8px 24px rgba(0,0,0,0.5),
+    0 24px 64px rgba(0,0,0,0.4);
+  --shadow-window-focused:
+    0 2px 4px rgba(0,0,0,0.5),
+    0 8px 32px rgba(0,0,0,0.6),
+    0 32px 80px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(30, 58, 95, 0.2);
+}
+.mobileBlock {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileBlock {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: #0C0C0E;
+    z-index: 99999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 32px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+
+  .mobileBlock svg {
+    opacity: 0.4;
+  }
+
+  .mobileBlockTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #E8E8EC;
+    text-align: center;
+    letter-spacing: -0.3px;
+  }
+
+  .mobileBlockSub {
+    font-size: 12px;
+    color: #6B6B78;
+    text-align: center;
+    line-height: 1.7;
+    max-width: 260px;
+  }
+
+  .mobileBlockLink {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 20px;
+    border-radius: 8px;
+    background: rgba(30, 58, 95, 0.12);
+    border: 1px solid rgba(30, 58, 95, 0.25);
+    color: #E8E8EC;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 8px;
+  }
+
+  .mobileBlockDivider {
+    width: 40px;
+    height: 1px;
+    background: #2A2A30;
+  }
+
+  .mobileBlockLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .mobileBlockSecondary {
+    font-size: 11px;
+    color: #6B6B78;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .mobileBlockSecondary:hover {
+    color: #A0A0AC;
+  }
+}

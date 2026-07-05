@@ -1,0 +1,354 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Computer illustration ── */
+.computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.monitor {
+  width: 320px;
+  background: #1a1a1a;
+  border-radius: 12px 12px 4px 4px;
+  border: 2px solid #2a2a2a;
+  box-shadow:
+    0 0 0 1px #111,
+    0 8px 32px rgba(0,0,0,0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.monitorInner {
+  margin: 12px;
+  background: #000;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+}
+
+.monitorBezel {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Screen off state */
+.screen.off {
+  background: #000;
+}
+
+/* Screen on — boot sequence */
+.screen.booting {
+  background: #000;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 16px;
+}
+
+/* Screen on — idle (before press) */
+.screen.idle {
+  background: radial-gradient(ellipse at 50% 60%, #0d0d12 0%, #000 100%);
+}
+
+/* Scanlines overlay */
+.screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Idle screen content ── */
+.idleContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.idleName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #E8E8EC;
+  letter-spacing: -0.3px;
+}
+
+.idleRole {
+  font-size: 10px;
+  color: #9B2335;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.idleDivider {
+  width: 24px;
+  height: 1px;
+  background: #2A2A30;
+}
+
+.idleItems {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.idleItem {
+  font-size: 10px;
+  color: #6B6B78;
+  letter-spacing: 0.02em;
+}
+
+.idleHint {
+  font-size: 9px;
+  color: #3A3A42;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ── Boot text ── */
+.bootLines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bootLine {
+  font-size: 10px;
+  color: #9B2335;
+  font-family: 'Courier New', monospace;
+  opacity: 0;
+  animation: bootFadeIn 0.2s ease forwards;
+  white-space: nowrap;
+}
+
+.bootLine.dim {
+  color: #3A3A42;
+}
+
+.bootLine.bright {
+  color: #E8E8EC;
+}
+
+@keyframes bootFadeIn {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Monitor stand ── */
+.stand {
+  width: 80px;
+  height: 20px;
+  background: #1a1a1a;
+  border: 2px solid #2a2a2a;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  position: relative;
+  z-index: -1;
+}
+
+.standBase {
+  width: 160px;
+  height: 10px;
+  background: #1a1a1a;
+  border: 2px solid #2a2a2a;
+  border-radius: 4px;
+}
+
+/* ── Tower ── */
+.tower {
+  width: 70px;
+  height: 160px;
+  background: linear-gradient(160deg, #222 0%, #1a1a1a 100%);
+  border: 2px solid #2a2a2a;
+  border-radius: 6px;
+  position: absolute;
+  right: -100px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+.towerSlot {
+  width: 40px;
+  height: 3px;
+  background: #111;
+  border-radius: 2px;
+}
+
+.towerSlot2 {
+  width: 40px;
+  height: 6px;
+  background: #111;
+  border-radius: 2px;
+}
+
+.towerLight {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.towerLight.on {
+  background: #1E3A5F;
+  box-shadow: 0 0 8px #1E3A5F;
+}
+
+/* ── Power button ── */
+.powerBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #111;
+  border: 2px solid #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.powerBtn:hover {
+  border-color: #1E3A5F;
+  box-shadow: 0 0 12px rgba(30,58,95,0.3);
+}
+
+.powerBtn.pressed {
+  border-color: #1E3A5F;
+  box-shadow: 0 0 16px rgba(30,58,95,0.5);
+  background: rgba(30,58,95,0.1);
+}
+
+.powerBtn svg {
+  width: 12px;
+  height: 12px;
+  color: #3A3A42;
+  transition: color 0.2s ease;
+}
+
+.powerBtn:hover svg,
+.powerBtn.pressed svg {
+  color: #1E3A5F;
+}
+
+/* ── Scene ── */
+.scene {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Flicker ── */
+.flicker {
+  animation: flicker 0.3s ease;
+}
+
+@keyframes flicker {
+  0%   { opacity: 1; }
+  20%  { opacity: 0; }
+  40%  { opacity: 1; }
+  60%  { opacity: 0.3; }
+  80%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* ── Desktop fade in ── */
+.desktopWrap {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  animation: desktopIn 0.6s ease forwards;
+}
+
+@keyframes desktopIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* ── Starfield ── */
+.stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.scene {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+/* ── Context line ── */
+.contextLine {
+  margin-top: 28px;
+  font-size: 11px;
+  color: #3A3A42;
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  animation: fadeIn 0.6s ease 0.3s both;
+}

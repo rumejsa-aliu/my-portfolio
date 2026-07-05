@@ -1,0 +1,158 @@
+.window {
+  position: absolute;
+  min-width: 320px;
+  min-height: 200px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-window);
+  transition: box-shadow 0.2s ease;
+}
+
+.window.focused {
+  box-shadow: var(--shadow-window-focused);
+  border-color: var(--color-border);
+}
+
+.window.maximized {
+  border-radius: 0;
+  border: none;
+}
+
+.window.minimized {
+  display: none;
+}
+
+.titleBar {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 0 14px;
+  cursor: grab;
+  flex-shrink: 0;
+  user-select: none;
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.titleBar:active {
+  cursor: grabbing;
+}
+
+.titleBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.windowIcon {
+  color: var(--color-text-3);
+  display: flex;
+  align-items: center;
+}
+
+.windowIcon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.windowTitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-2);
+  font-family: inherit;
+  letter-spacing: 0.02em;
+}
+
+.focused .windowTitle {
+  color: var(--color-text-1);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.controlBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-3);
+  background: transparent;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.controlBtn:hover {
+  background: var(--color-surface-3);
+  color: var(--color-text-1);
+}
+
+.controlBtn.close:hover {
+  background: var(--color-accent);
+  color: var(--color-text-1);
+}
+
+.controlBtn svg {
+  width: 10px;
+  height: 10px;
+}
+
+.body {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  background: var(--color-surface-1);
+}
+
+/* ── Terminal variant (Windows Terminal style) ── */
+
+.terminalVariant .titleBar {
+  background: #1e1e1e;
+  border-bottom: 1px solid #2d2d2d;
+  padding: 0 8px 0 12px;
+}
+
+.terminalVariant .titleBarLeft {
+  gap: 8px;
+}
+
+.terminalVariant .windowIcon {
+  color: #6ba3d6;
+}
+
+.terminalVariant .windowTitle {
+  color: #cccccc;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 12px;
+}
+
+.terminalVariant .controlBtn {
+  width: 30px;
+  height: 28px;
+  border-radius: 0;
+  color: #cccccc;
+}
+
+.terminalVariant .controlBtn:hover {
+  background: #333333;
+  color: #ffffff;
+}
+
+.terminalVariant .controlBtn.close:hover {
+  background: #c42b1c;
+  color: #ffffff;
+}
+
+.terminalVariant .body {
+  background: #0c0c0c;
+}

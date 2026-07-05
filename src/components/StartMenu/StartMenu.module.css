@@ -1,0 +1,133 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 999;
+}
+
+.startMenu {
+  position: absolute;
+  bottom: 56px;
+  left: 8px;
+  width: 300px;
+  border-radius: var(--radius-lg);
+  z-index: 1001;
+  overflow: hidden;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-glass-border);
+  box-shadow:
+    var(--shadow-window),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  animation: slideUp 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-1);
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: var(--color-text-3);
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.appGrid {
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.appItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.12s ease;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.appItem:hover {
+  background: var(--color-surface-2);
+}
+
+.appItem:hover .appIcon {
+  border-color: var(--color-border);
+}
+
+.appIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-soft);
+  transition: border-color 0.12s ease;
+  color: var(--color-text-2);
+}
+
+.appIcon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.appName {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-1);
+  line-height: 1.2;
+}
+
+.appDesc {
+  font-size: 11px;
+  color: var(--color-text-3);
+  margin-top: 1px;
+}
+
+.footer {
+  padding: 10px 18px;
+  border-top: 1px solid var(--color-border-soft);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shutdownBtn {
+  font-size: 11px;
+  color: var(--color-text-3);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.15s ease;
+  padding: 4px 0;
+  letter-spacing: 0.02em;
+}
+
+.shutdownBtn:hover {
+  color: var(--color-accent);
+}
